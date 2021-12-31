@@ -37,17 +37,20 @@ then
         fi
     fi
     # create temporary directory, verify files, if not there, download them.
-    mkdir $mulepathtemp
-    if test -f "${mulepathtemp}apache-log4j-2.12.4-bin.tar.gz"; then
-        echo "Apache tar already downloaded."
-        if test -f "${mulepathtemp}log4j-slf4j-impl-2.12.4.jar"; then
-            echo "Files already extracted."
+    if [[ ! -d "$mulepathtemp" ]]
+    then
+        mkdir $mulepathtemp
+    fi
+    if [[ -f "${mulepathtemp}log4j-jul-2.12.4.jar" && -f "${mulepathtemp}log4j-jcl-2.12.4.jar" && -f "${mulepathtemp}log4j-slf4j-impl-2.12.4.jar" && -f "${mulepathtemp}log4j-1.2-api-2.12.4.jar" && -f "${mulepathtemp}log4j-core-2.12.4.jar" && -f "${mulepathtemp}log4j-api-2.12.4.jar" ]]; then
+        echo "Log4j2 files already in tempdir"
+    else  
+        if test -f "${mulepathtemp}apache-log4j-2.12.4-bin.tar.gz"; then
+            echo "Apache tar already downloaded. Extracting files now."
+            tar -xzvf "${mulepathtemp}apache-log4j-2.12.4-bin.tar.gz" -C $mulepathtemp --strip-components 1 apache-log4j-2.12.4-bin/log4j-jul-2.12.4.jar apache-log4j-2.12.4-bin/log4j-jcl-2.12.4.jar apache-log4j-2.12.4-bin/log4j-slf4j-impl-2.12.4.jar apache-log4j-2.12.4-bin/log4j-1.2-api-2.12.4.jar apache-log4j-2.12.4-bin/log4j-core-2.12.4.jar apache-log4j-2.12.4-bin/log4j-api-2.12.4.jar
         else
+            wget https://archive.apache.org/dist/logging/log4j/2.12.4/apache-log4j-2.12.4-bin.tar.gz -P $mulepathtemp
             tar -xzvf "${mulepathtemp}apache-log4j-2.12.4-bin.tar.gz" -C $mulepathtemp --strip-components 1 apache-log4j-2.12.4-bin/log4j-jul-2.12.4.jar apache-log4j-2.12.4-bin/log4j-jcl-2.12.4.jar apache-log4j-2.12.4-bin/log4j-slf4j-impl-2.12.4.jar apache-log4j-2.12.4-bin/log4j-1.2-api-2.12.4.jar apache-log4j-2.12.4-bin/log4j-core-2.12.4.jar apache-log4j-2.12.4-bin/log4j-api-2.12.4.jar
         fi
-    else
-        wget https://archive.apache.org/dist/logging/log4j/2.12.4/apache-log4j-2.12.4-bin.tar.gz -P $mulepathtemp
-        tar -xzvf "${mulepathtemp}apache-log4j-2.12.4-bin.tar.gz" -C $mulepathtemp --strip-components 1 apache-log4j-2.12.4-bin/log4j-jul-2.12.4.jar apache-log4j-2.12.4-bin/log4j-jcl-2.12.4.jar apache-log4j-2.12.4-bin/log4j-slf4j-impl-2.12.4.jar apache-log4j-2.12.4-bin/log4j-1.2-api-2.12.4.jar apache-log4j-2.12.4-bin/log4j-core-2.12.4.jar apache-log4j-2.12.4-bin/log4j-api-2.12.4.jar
     fi
     # Ask for mule version and download accordingly.
     echo
