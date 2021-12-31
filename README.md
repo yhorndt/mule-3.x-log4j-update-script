@@ -63,6 +63,7 @@ Clone this repo to your server, or wget the raw script only. The script will dow
 The repo will have the necessary dependencies aswell, but the script will download them anyway, unless you copy the temporary directory from this repo into your mule_home directory. Or you can clone this repo into your mule_home directory.
 
 ## Usage <a name = "usage"></a>
+>wget https://raw.githubusercontent.com/yhorndt/mule-3.x-log4j-update-script/master/mule_3_l4j2_update_script.sh
 
 >chmod +x mule_3_l4j2_update_script.sh
 
