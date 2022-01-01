@@ -11,7 +11,8 @@ Please make a backup, beforehand.*
 
 ## About <a name = "about"></a>
 
-This script will automate the steps laid out by mulesoft to update the log4j2 binaries in the mule 3.x.x standalone package.
+This script will automate the steps laid out by mulesoft to update the log4j2 binaries in the mule 3.x.x standalone package. To remedy the log4shell vulnerabilities up to CVE-2021-44832.
+https://logging.apache.org/log4j/2.x/
 
 
 ## Description <a name = "desc"></a>
