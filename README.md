@@ -3,12 +3,6 @@
 *This is my first time writing a shell script, so I don't take any responsibility for anything. Neither the contents, nor your system, before or after using this script.
 Please make a backup, beforehand.*
 
-## Table of Contents
-
-- [About](#about)
-- [Description](#desc)
-- [Usage](#usage)
-
 ## About <a name = "about"></a>
 
 This script will automate the steps laid out by mulesoft to update the log4j2 binaries in the mule 3.x.x standalone package. To remedy the log4shell vulnerabilities up to CVE-2021-44832.
@@ -63,7 +57,7 @@ Our script does basically that. These are the steps taken in the script:
 ### Installing
 
 Clone this repo to your server, or wget the raw script only. The script will download all dependencies.
-The repo will have the necessary dependencies aswell, but the script will download them anyway, unless you copy the temporary directory from this repo into your mule_home directory. Or you can clone this repo into your mule_home directory.
+The repo will have the necessary dependencies aswell, but the script will download them anyway, unless you copy the temporary directory from this repo into your mule_home directory.
 
 ## Usage <a name = "usage"></a>
 >wget https://raw.githubusercontent.com/yhorndt/mule-3.x-log4j-update-script/master/mule_3_l4j2_update_script.sh
