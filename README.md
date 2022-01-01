@@ -34,10 +34,12 @@ Our script does basically that. These are the steps taken in the script:
 2. Ask the user for the path to mule_home.
 3. Verify if the path is correct (by checking for (mule_home)/bin/mule). If correct: continue. If not: stop script.
 4. Create temporary directory inside mule_home.
-5. Check if the apache binaries tar.gz archive is inside of the temporary directory. If it is: continue. If it isn't: download the archive from apache servers.
-6. Check if the relevant jars have been extracted into the temporary directory. If they have: continue. If they have not: extract them to the temp directory.
-*This only checks if the last relevant jar has been extracted, not for all relevant files.*
+5. Check if the relevant jars have been extracted into the temporary directory. If they have: continue. if not:
+   - Check if the apache binaries tar.gz archive is inside of the temporary directory. If it is: continue. If it isn't: download the archive from apache servers.
+   - If they have not: extract them to the temp directory.
+
 7. Ask the user for input on the mule version. Option a: (3.8.0-3.8.7) or option b: (3.9.0-3.9.5). The script will stop if anything other than a or b is entered.
+   - *I've found that option a also works on 3.8.8*
 8. Depending on the choice, the relevant mule patch will be downloaded to the temporary directory. If it doesn't already exist.
 9. If it doesn't already exist, download the new disruptor jar.
 10. Check if all relevant files are located in the temporary directory.
