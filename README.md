@@ -17,10 +17,12 @@ Anyway, for the mule 3.x standalone package the instructions are the following (
 
     Verify mule service has been stopped
     Remove the log4j jars in the (mule_home)/lib/boot/ directory
-    Remove the disruptor jar in the (Mule Home)/lib/boot/ directory
+    Remove the disruptor jar in the (mule_home)/lib/boot/ directory
     Download the binaries from the 2.12.4 release
     Download the new disruptor jar from the mulesoft helpcenter
     Download the mule patch from the mulesoft helpcenter
+    Move log4j and disruptor jars to (mule_home)/lib/boot directory
+    Move mule patch to (mule_home)/lib/user/ directory
     Start the mule service and verify everything is working
 
 Our script does basically that. These are the steps taken in the script:
@@ -31,7 +33,7 @@ Our script does basically that. These are the steps taken in the script:
 4. Create temporary directory inside mule_home.
 5. Check if the relevant jars have been extracted into the temporary directory. If they have: continue. if not:
    - Check if the apache binaries tar.gz archive is inside of the temporary directory. If it is: continue. If it isn't: download the archive from apache servers.
-   - If they have not: extract them to the temp directory.
+   - Extract the relevant jars to the temp directory.
 
 7. Ask the user for input on the mule version. Option a: (3.8.0-3.8.7) or option b: (3.9.0-3.9.5). The script will stop if anything other than a or b is entered.
    - *I've found that option a also works on 3.8.8*
