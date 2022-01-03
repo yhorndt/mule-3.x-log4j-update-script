@@ -108,7 +108,7 @@ then
     cp "${mulepathtemp}log4j"*.jar "${mulepath}lib/boot/"
     cp "${mulepathtemp}disruptor-"*.jar "${mulepath}lib/boot/"
     cp "${mulepathtemp}EE-8195-${mulev}"*.jar "${mulepath}lib/user/"
-    echo "All files copied, you can start mule now and verify everything works.".
+    echo "All files copied, you can start mule now in a second terminal and verify everything works.".
     # If verified working, remove temporary folder
     echo "If you've verified mule started correctly, the temporary files and backups will be removed."
     read -p "Does mule work correctly? (y/n) :"  -n 1 -r
@@ -117,6 +117,7 @@ then
         echo
         echo "Temp and backup files will be removed now."
         rm -r "${mulepathtemp}"
+        echo "Temp and backup files have been removed."
     else
         echo
         echo "Script will quit now, please verify all files are copied correctly."
