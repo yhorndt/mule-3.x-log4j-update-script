@@ -17,7 +17,7 @@ then
     echo "Mule has been shut down. Good for you!"
     echo
     # User input of mule path, verficiation
-    read -p "What is the path to the mule installation? (e.g. /opt/mule38/): " mulepath
+    read -e -p "What is the path to the mule installation? (e.g. /opt/mule38/): " mulepath
     if [[ "$mulepath" =~ '/'$ ]]; then
         if test -f "${mulepath}bin/mule"; then
             echo "Mule path verified."
